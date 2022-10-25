@@ -25,10 +25,13 @@ include '../templates/header.php';
 <body>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-1">
                 <picture>
-                    <img class="img-fluid w-10 h-10" width="20px" src="img/logo.jpg" alt="biblioteca">
+                    <img class="img-fluid w-10 h-10" width="80px" src="img/logo.jpg" alt="biblioteca">
                 </picture>
+            </div>
+            <div class="col">
+                <h1 class="text-center Header">Biblioteca Servicios en la Nube</h1>
             </div>
         </div>
     </div>
@@ -76,5 +79,8 @@ include '../templates/header.php';
             </div>
         </div>
     </div>
+    <?php
+    include '../templates/footer.php'
+    ?>
 </body>
 </html>

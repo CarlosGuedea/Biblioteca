@@ -1,5 +1,13 @@
+h1{
+    font-family: Libre Baskerville, Georgia, "Times New Roman", sans-serif;
+}
+
+.Header{
+    margin-top: 1rem;
+}
+
 .contenedor{
-    margin-top: 5rem;
+    margin-top: 2rem;
     padding-top: 5rem;
     background-color: lightcyan;
     padding-bottom: 5rem;
@@ -7,4 +15,13 @@
 
 .centrar{
     margin-right: 1.5rem;
+}
+
+.footer{
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    background-color: #464646;
+    color: #fff;
+    text-align: center;
 }
