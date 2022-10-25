@@ -1,0 +1,15 @@
+{
+    "name": "guede/biblioteca",
+    "autoload": {
+        "psr-4": {
+            "Guede\\Biblioteca\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "CarlosGuedea",
+            "email": "57150568+CarlosGuedea@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
