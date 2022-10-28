@@ -4,7 +4,7 @@ include '../vendor/autoload.php';
 
 class ConectarBD{
     function Conexion(){
-        $conn = new PDO('sqlsrv:Server=localhost\\SQLEXPRESS;Database=Hotel', 'usersql', 'root');
+        $conn = new mysqli('localhost', 'root', 'Particionar22', 'Biblioteca');
         if(!$conn){
             exit;
         }

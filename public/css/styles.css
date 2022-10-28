@@ -1,3 +1,11 @@
+html{
+    box-sizing: border-box;
+}
+
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+
 h1{
     font-family: Libre Baskerville, Georgia, "Times New Roman", sans-serif;
 }
@@ -28,4 +36,10 @@ h1{
 
 .button{
     margin-right: 1rem;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
 }

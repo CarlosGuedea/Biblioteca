@@ -5,18 +5,19 @@ $db = new ConectarBD;
 
 $conn=$db->Conexion();
 
-$email=$_POST['email'];
-$password=$_POST['password'];
+$No_cuenta=htmlspecialchars($_POST['No_cuenta']);
+$contrasena=htmlspecialchars($_POST['contrasena']);
 
-$hashpassword=md5(hash('sha512',$password));
+$hashcontrasena=md5(hash('sha512',$contrasena));
 
-// if($_POST['email']){
-//     $truepassword=$conn->get($email);
-//     $hashpassword=md5(hash('sha512',$password));
-//     if($truepassword==$hashpassword){
-//         session_start();
-//     }
-// }
+if(isset($_POST['No_cuenta'])){
+    $hashcontrasena=md5(hash('sha512',$contrasena));
+    $query="Insert into Login (No_cuenta,contrasena) values (?,?)";
+    $stmt=$conn->prepare($query);
+    $stmt->execute([$No_cuenta,$hashcontrasena]);
+        session_start();
+        echo 'Usuario Registrado exitosamente';
+}
 
 include '../templates/header.php';
 ?>
@@ -38,17 +39,17 @@ include '../templates/header.php';
     <div class="container contenedor">
         <div class="row">
             <div class="col text-center">
-                <h1>Inicio de sesión</h1>
+                <h1>Registro</h1>
             </div>
         </div>
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
         <div class="row">
             <div class="col text-center">
-                <label class="" for="email">Ingrese su correo</label>
+                <label class="" for="No_cuenta">Ingrese su No de cuenta</label>
             </div>
         <div class="row">
             <div class="col text-center">
-                <input class="" type="email" placeholder="Correo electrónico" name="email">
+                <input class="" type="number" placeholder="No_cuenta" name="No_cuenta">
             </div>
         </div>
         </div>
@@ -58,24 +59,24 @@ include '../templates/header.php';
             </div>
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <input type="password" name="password">
+                <input type="password" placeholder="contraseña" name="contrasena">
             </div>
         </div>
         </div>
         <div class="row">
             <div class="col text-center">
-                <input type="submit" class="btn btn-primary mt-2" value="Log In">
+                <input type="submit" class="btn btn-primary mt-2" value="Registrarse">
                 </form>
             </div>
         </div>
         <div class="row">
             <div class="col text-center">
-                <p>¿No tienes una cuenta?<p>
+                <p>¿Ya tienes una cuenta?<p>
             </div>
         </div>
         <div class="row">
             <div class="col text-center">
-                <a href="Login.php"><p>Registrarse<p></a>
+                <a href="index.php"><p>Iniciar Sesión<p></a>
             </div>
         </div>
     </div>
