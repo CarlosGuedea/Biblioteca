@@ -1,4 +1,14 @@
 <?php
+session_start();
+
+if (isset($_SESSION['contrasena'])){
+    
+}else{
+//Aqui lo redireccionas al lugar que quieras.
+    header('Location: index.php');
+    die() ;
+}
+//var_dump(session_id());
 
 include '../config/database.php';
 $db = new ConectarBD;
@@ -28,21 +38,11 @@ if(isset($_POST['No_producto'])){
     $stmt2->execute([$No_producto,$Descripción,$Precio,$Costo,$Incluido,$Existencia,$S_max,$S_min]);
 
     header('Location: Masajes_Almacen.php');
+
 }
 
+include '../templates/header.php';
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title> PAGINA ALUMNO</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        
-    </head>
     <body>
             <div class="container mt-5">
                     <div class="row"> 
@@ -96,5 +96,13 @@ if(isset($_POST['No_producto'])){
                         </div>
                     </div>  
             </div>
+            <div class="container">
+                <div class="row">
+                <th><a href="Masajes_Eliminar.php" class="btn btn-danger">Cerrar Sesión</a></th>
+                </div>
+            </div>
+    <?php
+    include '../templates/footer.php'
+    ?>
     </body>
 </html>
