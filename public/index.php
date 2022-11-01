@@ -7,12 +7,10 @@ $db = new ConectarBD;
 
 $conn=$db->Conexion();
 
-$No_cuenta=htmlspecialchars($_POST['No_cuenta']);
-$contrasena=htmlspecialchars($_POST['contrasena']);
-
-$hashcontrasena=md5(hash('sha512',$contrasena));
-
 if(isset($_POST['No_cuenta'])){
+    $No_cuenta=htmlspecialchars($_POST['No_cuenta']);
+    $contrasena=htmlspecialchars($_POST['contrasena']);
+    $hashcontrasena=md5(hash('sha512',$contrasena));
     $query="SELECT * FROM Login where No_cuenta = $No_cuenta";
     $stmt=$conn->query($query);
     $row=$stmt->fetch_assoc();

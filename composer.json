@@ -1,14 +1,14 @@
 {
-    "name": "guede/biblioteca",
+    "name": "carloseduardoguedea/biblioteca",
     "autoload": {
         "psr-4": {
-            "Guede\\Biblioteca\\": "src/"
+            "Carloseduardoguedea\\Biblioteca\\": "src/"
         }
     },
     "authors": [
         {
             "name": "CarlosGuedea",
-            "email": "57150568+CarlosGuedea@users.noreply.github.com"
+            "email": "guedea.fis@gmail.com"
         }
     ],
     "require": {}
