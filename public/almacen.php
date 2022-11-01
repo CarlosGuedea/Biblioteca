@@ -27,7 +27,7 @@ if(isset($_POST['id'])){
     $editorial = htmlspecialchars($_POST['editorial']);
     $stock = htmlspecialchars($_POST['stock']);
 
-    $query2="INSERT INTO Masajes (id,nombre,autor,editorial,stock)
+    $query2="INSERT INTO Libros (id,nombre,autor,editorial,stock)
     VALUES (?,?,?,?,?)";
 
     $stmt2=$conn->prepare($query2);
@@ -51,8 +51,8 @@ include '../templates/header.php';
 
                                 <input type="text" class="form-control mb-3" name="id" placeholder="id" value="<?php echo $_POST['id']  ?>">
                                 <input type="text" class="form-control mb-3" name="nombre" placeholder="nombre" value="<?php echo $_POST['nombre'] ?>">
-                                <input type="number" class="form-control mb-3" name="autor" placeholder="autor" value="<?php echo $_POST['autor']  ?>">
-                                <input type="number" class="form-control mb-3" name="editorial" placeholder="editorial" value="<?php echo $_POST['editorial']  ?>">
+                                <input type="text" class="form-control mb-3" name="autor" placeholder="autor" value="<?php echo $_POST['autor']  ?>">
+                                <input type="text" class="form-control mb-3" name="editorial" placeholder="editorial" value="<?php echo $_POST['editorial']  ?>">
                                 <input type="number" class="form-control mb-3" name="stock" placeholder="stock" value="<?php echo $_POST['stock']  ?>">
                                 
                                 <input type="submit" class="btn btn-primary">

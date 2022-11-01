@@ -7,18 +7,13 @@ $db = new ConectarBD;
 
 $conn=$db->Conexion();
 
-$No_cuenta=htmlspecialchars($_POST['No_cuenta']);
-$contrasena=htmlspecialchars($_POST['contrasena']);
-
-$hashcontrasena=md5(hash('sha512',$contrasena));
-
 if(isset($_POST['No_cuenta'])){
+    $No_cuenta=htmlspecialchars($_POST['No_cuenta']);
+    $contrasena=htmlspecialchars($_POST['contrasena']);
     $hashcontrasena=md5(hash('sha512',$contrasena));
     $query="Insert into Login (No_cuenta,contrasena) values (?,?)";
     $stmt=$conn->prepare($query);
     $stmt->execute([$No_cuenta,$hashcontrasena]);
-        session_start();
-        echo 'Usuario Registrado exitosamente';
 }
 
 include '../templates/header.php';

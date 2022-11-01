@@ -14,9 +14,7 @@ if(isset($_POST['No_cuenta'])){
     $query="SELECT * FROM Login where No_cuenta = $No_cuenta";
     $stmt=$conn->query($query);
     $row=$stmt->fetch_assoc();
-    var_dump($row);
     $truecontrasena=$row['contrasena'];
-    $hashcontrasena=md5(hash('sha512',$contrasena));
 
     if($truecontrasena==$hashcontrasena){
         $_SESSION['contrasena']=$truecontrasena;
