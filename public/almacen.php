@@ -8,7 +8,6 @@ if (isset($_SESSION['contrasena'])){
     header('Location: index.php');
     die() ;
 }
-//var_dump(session_id());
 
 include '../config/database.php';
 $db = new ConectarBD;
