@@ -1,8 +1,9 @@
 <?php
 session_start();
 session_unset();
+error_reporting(0);
 
-include '../config/database.php';
+include 'config/database.php';
 $db = new ConectarBD;
 
 $conn=$db->Conexion();
@@ -18,12 +19,12 @@ if(isset($_POST['No_cuenta'])){
 
     if($truecontrasena==$hashcontrasena){
         $_SESSION['contrasena']=$truecontrasena;
-        header('Location: almacen.php');
+        header('Location: public/almacen.php');
 
     }
 }
 
-include '../templates/header.php';
+include 'templates/header.php';
 ?>
 
 
@@ -68,12 +69,12 @@ include '../templates/header.php';
         </div>
         <div class="row">
             <div class="col text-center">
-                <a href="registro.php"><p>Registrarse<p></a>
+                <a href="public/registro.php"><p>Registrarse<p></a>
             </div>
         </div>
     </div>
     <?php
-    include '../templates/footer.php'
+    include 'templates/footer.php'
     ?>
 </body>
 </html>

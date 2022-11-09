@@ -1,6 +1,7 @@
 <?php
 session_start();
 session_unset();
+error_reporting(0);
 
 include '../config/database.php';
 $db = new ConectarBD;
