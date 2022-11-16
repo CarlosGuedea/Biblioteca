@@ -40,7 +40,7 @@ if(isset($_POST['id'])){
 
 }
 
-include '../templates/header.php';
+include '../template/header.php';
 ?>
 
 <!-- formulario para actualizar un libro -->
@@ -58,7 +58,7 @@ include '../templates/header.php';
                     
                 </div>
     <?php
-    include '../templates/footer.php'
+    include '../template/footer.php'
     ?>
 </body>
 </html>

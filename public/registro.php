@@ -22,7 +22,7 @@ if(isset($_POST['No_cuenta'])){
     $stmt->execute([$No_cuenta,$hashcontrasena]);
 }
 
-include '../templates/header.php';
+include '../template/header.php';
 ?>
 
 <!-- Formulario para crear un usuario -->
@@ -72,7 +72,7 @@ include '../templates/header.php';
         </div>
     </div>
     <?php
-    include '../templates/footer.php'
+    include '../template/footer.php'
     ?>
 </body>
 </html>

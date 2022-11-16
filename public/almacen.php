@@ -43,7 +43,7 @@ if(isset($_POST['id'])){
 
 }
 
-include '../templates/header.php';
+include '../template/header.php';
 ?>
     <body>
             <div class="container mt-5">
@@ -104,7 +104,7 @@ include '../templates/header.php';
                 </div>
             </div>
     <?php
-    include '../templates/footer.php'
+    include '../template/footer.php'
     ?>
     </body>
 </html>
