@@ -1,5 +1,7 @@
 <?php
+//iniciar sesion y darles un identificador unico
 session_start();
+//En servidores que no son de desarrollo evita que se muestren los errores
 error_reporting(0);
 
 if (isset($_SESSION['contrasena'])){
@@ -10,6 +12,7 @@ if (isset($_SESSION['contrasena'])){
     die() ;
 }
 
+//Conexion con la base de datos
 include '../config/database.php';
 $db = new ConectarBD;
 
@@ -17,6 +20,8 @@ $conn=$db->Conexion();
 
 $id = htmlspecialchars($_POST['id']);
 
+
+//Eliminar un libro por su ID
 if(isset($_POST['id'])){
     $query2="DELETE FROM Libros WHERE id = $id";
 
@@ -31,6 +36,7 @@ if(isset($_POST['id'])){
 include '../templates/header.php';
 ?>
 
+<!-- Formulario para eliminar un libro -->
 <body>
 <div class="container mt-5">
     <h1>Introduzca el ID que desea eliminar</h1>

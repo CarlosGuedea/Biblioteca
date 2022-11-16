@@ -1,13 +1,18 @@
 <?php
+//iniciar sesion y darles un identificador unico
 session_start();
 session_unset();
+//En servidores que no son de desarrollo evita que se muestren los errores
 error_reporting(0);
 
+//Conexion con la base de datos
 include '../config/database.php';
 $db = new ConectarBD;
 
 $conn=$db->Conexion();
 
+
+//Manda los datos para crear un usuario
 if(isset($_POST['No_cuenta'])){
     $No_cuenta=htmlspecialchars($_POST['No_cuenta']);
     $contrasena=htmlspecialchars($_POST['contrasena']);
@@ -20,7 +25,7 @@ if(isset($_POST['No_cuenta'])){
 include '../templates/header.php';
 ?>
 
-
+<!-- Formulario para crear un usuario -->
 <body>
     <div class="container contenedor">
         <div class="row">

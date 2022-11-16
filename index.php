@@ -1,13 +1,17 @@
 <?php
+//iniciar sesion y darles un identificador unico
 session_start();
 session_unset();
+//En servidores que no son de desarrollo evita que se muestren los errores
 error_reporting(0);
 
+//Hacer la conexión con la base de datos
 include 'config/database.php';
 $db = new ConectarBD;
 
 $conn=$db->Conexion();
 
+//Se revisa si la variables POST están llenas para hacer las validaciones necesarias
 if(isset($_POST['No_cuenta'])){
     $No_cuenta=htmlspecialchars($_POST['No_cuenta']);
     $contrasena=htmlspecialchars($_POST['contrasena']);
@@ -17,8 +21,10 @@ if(isset($_POST['No_cuenta'])){
     $row=$stmt->fetch_assoc();
     $truecontrasena=$row['contrasena'];
 
+    //Se comprueba que la contraseña introducida sea igual a la contraseña guardada
     if($truecontrasena==$hashcontrasena){
         $_SESSION['contrasena']=$truecontrasena;
+        //Redirige a la pagina de almacen
         header('Location: public/almacen.php');
 
     }
@@ -58,6 +64,7 @@ if(isset($_POST['No_cuenta'])){
                 <h1>Inicio de sesión</h1>
             </div>
         </div>
+        <!-- Formulario para el inicio de sesión -->
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
         <div class="row">
             <div class="col text-center">
@@ -92,6 +99,7 @@ if(isset($_POST['No_cuenta'])){
         </div>
         <div class="row">
             <div class="col text-center">
+                <!-- Redirige a la pagina para crear un usuario -->
                 <a href="public/registro.php"><p>Registrarse<p></a>
             </div>
         </div>

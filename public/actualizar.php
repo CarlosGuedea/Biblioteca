@@ -1,5 +1,7 @@
 <?php
+//iniciar sesion y darles un identificador unico
 session_start();
+//En servidores que no son de desarrollo evita que se muestren los errores
 error_reporting(0);
 
 if (isset($_SESSION['contrasena'])){
@@ -10,11 +12,14 @@ if (isset($_SESSION['contrasena'])){
     die() ;
 }
 
+//Hacer la conexión con la base de datos
 include '../config/database.php';
 $db = new ConectarBD;
 
 $conn=$db->Conexion();
 
+
+//Actualizar los datos de un libro
 if(isset($_POST['id'])){
 
     $id = htmlspecialchars($_POST['id']);
@@ -30,6 +35,7 @@ if(isset($_POST['id'])){
 
     $stmt2->execute([$nombre,$autor,$editorial,$stock,$id]);
 
+    //Redirige a la pagina principal
     header('Location: almacen.php');
 
 }
@@ -37,6 +43,7 @@ if(isset($_POST['id'])){
 include '../templates/header.php';
 ?>
 
+<!-- formulario para actualizar un libro -->
 <body>
 <div class="container mt-5">
     <h1>Actualizar información</h1>

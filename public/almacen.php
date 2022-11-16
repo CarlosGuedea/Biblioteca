@@ -1,5 +1,7 @@
 <?php
+//iniciar sesion y darles un identificador unico
 session_start();
+//En servidores que no son de desarrollo evita que se muestren los errores
 error_reporting(0);
 
 if (isset($_SESSION['contrasena'])){
@@ -15,10 +17,13 @@ $db = new ConectarBD;
 
 $conn=$db->Conexion();
 
+//Muestra todos los lirbos ingresados en la biblioteca
+
 $query="SELECT * FROM Libros";
 
 $stmt=$conn->query($query);
 
+//Inserte nuevos libros
 if(isset($_POST['id'])){
 
     $id = htmlspecialchars($_POST['id']);
@@ -46,6 +51,7 @@ include '../templates/header.php';
                         
                         <div class="col-md-3">
                             <h1>Biblioteca</h1>
+                            <!-- Formulario para ingresar nuevos libros -->
                             <h1>Ingrese datos</h1>
                                 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
 
@@ -70,7 +76,7 @@ include '../templates/header.php';
                                         <th>Stock</th>
                                     </tr>
                                 </thead>
-
+                                    <!-- Formulario para mostrar los libros ya ingresados -->
                                 <tbody>
                                         <?php
                                             while($row=$stmt->fetch_assoc()){
