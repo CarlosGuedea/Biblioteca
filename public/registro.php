@@ -67,7 +67,7 @@ include '../template/header.php';
         </div>
         <div class="row">
             <div class="col text-center">
-                <a href="index.php"><p>Iniciar Sesión<p></a>
+                <a href="../index.php"><p>Iniciar Sesión<p></a>
             </div>
         </div>
     </div>
